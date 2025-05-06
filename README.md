@@ -1,73 +1,74 @@
-# Welcome to your Lovable project
 
-## Project info
+# ShopEasy E-commerce Website
 
-**URL**: https://lovable.dev/projects/8e13f83e-7d8d-46ff-b0f0-2a72b6f8a56e
+## About
+ShopEasy is a simple e-commerce website built with HTML, PHP, and CSS for localhost development and testing.
 
-## How can I edit this code?
+## Features
+- Product browsing with categories
+- Product search functionality
+- Shopping cart system
+- Checkout process
+- Admin panel for product and order management
 
-There are several ways of editing your application.
+## Installation
 
-**Use Lovable**
+1. **Set up a local PHP development environment**
+   - Install a stack like XAMPP, WAMP, MAMP, or use PHP's built-in server
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/8e13f83e-7d8d-46ff-b0f0-2a72b6f8a56e) and start prompting.
+2. **Clone or download this repository to your web server directory**
+   - For XAMPP: `htdocs` folder 
+   - For WAMP: `www` folder
+   - For MAMP: `htdocs` folder
 
-Changes made via Lovable will be committed automatically to this repo.
+3. **Create the database**
+   - Create a MySQL database named `shopeasy`
+   - Import the `database_setup.sql` file using phpMyAdmin or MySQL command line
 
-**Use your preferred IDE**
+4. **Configure database connection**
+   - Open `includes/db_connect.php` and update the database credentials if needed:
+     ```php
+     $servername = "localhost";
+     $username = "root";
+     $password = "";
+     $dbname = "shopeasy";
+     ```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+5. **Create image directories**
+   - Create the following directories in your project:
+     - `images/products`
+     - `images/categories`
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+6. **Access the website**
+   - Open your web browser and navigate to: `http://localhost/shopeasy` (or the appropriate path based on your setup)
 
-Follow these steps:
+7. **Admin Access**
+   - Navigate to `http://localhost/shopeasy/admin`
+   - Login using:
+     - Username: `admin`
+     - Password: `admin123`
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## File Structure
+- `index.php` - Homepage
+- `products.php` - Product listing page
+- `product.php` - Individual product page
+- `cart.php` - Shopping cart
+- `checkout.php` - Checkout process
+- `confirmation.php` - Order confirmation
+- `admin/` - Admin panel files
+- `includes/` - Shared PHP files
+- `css/` - Stylesheets
+- `images/` - Image directories
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## Security Notes
+This application is intended for local development and learning purposes only. 
+For production use, additional security measures would be required:
 
-# Step 3: Install the necessary dependencies.
-npm i
+- Proper password hashing
+- Input validation and sanitization
+- CSRF protection
+- SQL injection prevention
+- XSS prevention
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/8e13f83e-7d8d-46ff-b0f0-2a72b6f8a56e) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## License
+This project is for educational purposes only.
