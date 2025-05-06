@@ -1,4 +1,3 @@
-
 <?php
   session_start();
   include '../includes/db_connect.php';
@@ -18,8 +17,9 @@
   
   $email = $_GET['email'];
   
-  // Get customer info
-  $customer_query = "SELECT customer_name, email, COUNT(id) as order_count, 
+  // Get customer info - FIXED GROUP BY query
+  $customer_query = "SELECT ANY_VALUE(customer_name) as customer_name, 
+                    email, COUNT(id) as order_count, 
                     SUM(total) as total_spent 
                     FROM orders 
                     WHERE email = '$email'

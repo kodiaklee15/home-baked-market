@@ -1,4 +1,3 @@
-
 <?php
   session_start();
   include '../includes/db_connect.php';
@@ -22,9 +21,12 @@
     $search_condition = " WHERE customer_name LIKE '%$search%' OR email LIKE '%$search%'";
   }
   
-  // Get unique customers (based on email)
-  $customers_query = "SELECT customer_name, email, COUNT(id) as order_count, 
-                      SUM(total) as total_spent, MAX(created_at) as last_order_date
+  // Get unique customers (based on email) - FIXED GROUP BY query
+  $customers_query = "SELECT ANY_VALUE(customer_name) as customer_name, 
+                      email, 
+                      COUNT(id) as order_count, 
+                      SUM(total) as total_spent, 
+                      MAX(created_at) as last_order_date
                       FROM orders
                       $search_condition
                       GROUP BY email
